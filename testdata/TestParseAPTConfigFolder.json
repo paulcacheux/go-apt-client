@@ -300,6 +300,15 @@
     "Enabled": false,
     "SourceRepo": false,
     "Options": "",
+    "URI": "file:///var/local/oab/deb",
+    "Distribution": "/",
+    "Components": "",
+    "Comment": "Local Java - https://github.com/flexiondotorg/oab-java6 disabled on upgrade to raring"
+  },
+  {
+    "Enabled": false,
+    "SourceRepo": false,
+    "Options": "",
     "URI": "https://private-ppa.launchpad.net/commercial-ppa-uploaders/portal-slingshot/ubuntu",
     "Distribution": "quantal",
     "Components": "main",

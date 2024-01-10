@@ -38,6 +38,7 @@ func TestParseAPTConfigFolder(t *testing.T) {
 	require.NoError(t, err, "Decoding expected data")
 
 	for i, repo := range repos {
+		expected[i].configFile = repo.configFile
 		require.EqualValues(t, expected[i], repo, "Comparing element %d", i)
 	}
 }
