@@ -106,7 +106,7 @@ func (r *Repository) APTConfigLine() string {
 	return res
 }
 
-var aptConfigLineRegexp = regexp.MustCompile(`^(# )?(deb|deb-src)(?: \[(.*)\])? ([^ ]+) ([^ ]+) ([^#\n]+)(?: +# *(.*))?$`)
+var aptConfigLineRegexp = regexp.MustCompile(`^(# )?(deb|deb-src)(?: \[(.*)\])? ([^ \[]+) ([^ ]+)(?: ([^#\n]+))?(?: +# *(.*))?$`)
 
 func parseAPTConfigLine(line string) *Repository {
 	match := aptConfigLineRegexp.FindAllStringSubmatch(line, -1)
@@ -230,7 +230,7 @@ func RemoveRepository(repo *Repository, configFolderPath string) error {
 	for scanner.Scan() {
 		line := scanner.Text()
 		r := parseAPTConfigLine(line)
-		if r!= nil && r.Equals(repo) {
+		if r != nil && r.Equals(repo) {
 			// Filter repo configs that match the repo to be removed
 			continue
 		}
